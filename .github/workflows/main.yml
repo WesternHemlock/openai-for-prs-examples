@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 2
       - name: Get AI comment
-        uses: WesternHemlock/openai-for-prs@v0
+        uses: WesternHemlock/openai-for-prs@main
         with:
           openai-token: ${{ secrets.OPENAI_TOKEN }}
           tokens: 2500
