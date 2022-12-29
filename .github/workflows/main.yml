@@ -1,0 +1,20 @@
+name: Get PR recommendations
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  get-recommendation:
+    runs-on: ubuntu-latest
+    name: Get a PR recommendation from OpenAI
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+      - name: Get AI comment
+        uses: WesternHemlock/openai-for-prs@v0
+        with:
+          openai-token: ${{ secrets.OPENAI_TOKEN }}
+          tokens: 2500
+          max-files: 5
