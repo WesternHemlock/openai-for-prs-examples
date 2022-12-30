@@ -1,4 +1,4 @@
-name: Get OpenAI recommendation
+name: Get PR recommendations
 on:
   pull_request:
     branches: [ "main" ]
@@ -6,14 +6,14 @@ on:
 jobs:
   get-recommendation:
     runs-on: ubuntu-latest
-    name: Get a recommendation from OpenAI
+    name: Get a PR recommendation from OpenAI
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 2
       - name: Get AI comment
-        uses: adanalvarez/openai-security-review@v0
+        uses: WesternHemlock/openai-for-prs@main
         with:
           openai-token: ${{ secrets.OPENAI_API_KEY }}
           tokens: 2500
